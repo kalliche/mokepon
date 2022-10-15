@@ -90,27 +90,23 @@ const HIPODOGE_ATAQUES = [
   { nombre: "💧", id: "boton-agua" },
   { nombre: "🔥", id: "boton-fuego" },
   { nombre: "🌱", id: "boton-tierra" }
-]
-
-hipodoge.ataques.push(...HIPODOGE_ATAQUES)
-
+];
+hipodoge.ataques.push(...HIPODOGE_ATAQUES);
 const CAPIPEPO_ATAQUES = [
   { nombre: "🌱", id: "boton-tierra" },
   { nombre: "🌱", id: "boton-tierra" },
   { nombre: "🌱", id: "boton-tierra" },
   { nombre: "💧", id: "boton-agua" },
   { nombre: "🔥", id: "boton-fuego" }
-]
-
-capipepo.ataques.push(...CAPIPEPO_ATAQUES)
-
+];
+capipepo.ataques.push(...CAPIPEPO_ATAQUES);
 const RATIGUEYA_ATAQUES = [
   { nombre: "🔥", id: "boton-fuego" },
   { nombre: "🔥", id: "boton-fuego" },
   { nombre: "🔥", id: "boton-fuego" },
   { nombre: "💧", id: "boton-agua" },
   { nombre: "🌱", id: "boton-tierra" }
-]
+];
 
 ratigueya.ataques.push(...RATIGUEYA_ATAQUES)
 mokepones.push(hipodoge,capipepo,ratigueya)
@@ -141,12 +137,12 @@ function iniciarJuego() {
 
 function unirseAlJuego() {
   fetch("http://localhost:8080/unirse")
-    .then(function(res) {
-      if(res.ok) {
-        res.text()
-          .then(function(respuesta) {
-            console.log(respuesta)
-            jugadorId = respuesta
+  .then(function(res) {
+    if(res.ok) {
+      res.text()
+      .then(function(respuesta) {
+        console.log(respuesta)
+        jugadorId = respuesta
           })
       }
     })
@@ -375,6 +371,8 @@ function enviarPosicion(x,y) {
             } else if(mokeponNombre === "Ratigueya") {
               mokeponEnemigo = new Mokepon("Ratigueya","./assets/mokepons_mokepon_ratigueya_attack.png",5,"./assets/ratigueya.webp");
             } 
+            mokeponEnemigo.x = enemigo.x;
+            mokeponEnemigo.y = enemigo.y;
             mokeponEnemigo.pintarMoquepon()
           })
         })
