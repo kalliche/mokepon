@@ -113,7 +113,8 @@ const RATIGUEYA_ATAQUES = [
 ratigueya.ataques.push(...RATIGUEYA_ATAQUES);
 
 
-mokepones.push(hipodoge, capipepo, ratigueya);
+ratigueya.ataques.push(...RATIGUEYA_ATAQUES)
+mokepones.push(hipodoge,capipepo,ratigueya)
 
 function iniciarJuego() {
   sectionSeleccionarAtaque.style.display = "none";
@@ -141,12 +142,12 @@ function iniciarJuego() {
 
 function unirseAlJuego() {
   fetch("http://localhost:8080/unirse")
-    .then(function(res) {
-      if(res.ok) {
-        res.text()
-          .then(function(respuesta) {
-            console.log(respuesta)
-            jugadorId = respuesta
+  .then(function(res) {
+    if(res.ok) {
+      res.text()
+      .then(function(respuesta) {
+        console.log(respuesta)
+        jugadorId = respuesta
           })
       }
     })
@@ -347,7 +348,6 @@ function pintarCanvas() {
     revisarColision(capipepoEnemigo)
     revisarColision(ratigueyaEnemigo)
   }
-
 }
 
 function enviarPosicion(x,y) {
@@ -361,7 +361,6 @@ function enviarPosicion(x,y) {
       y
     })
   })
-
   .then(function(res) {
     if(res.ok) {
       res.json()
